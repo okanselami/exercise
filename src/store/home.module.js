@@ -20,7 +20,9 @@ const actions = {
 
 const mutations = {
   setAllEvents(state, payload) {
-    state.events.results = payload.results;
+    // Sort Events by Name
+    state.events.results = payload.results
+      .sort((a, b) => a.name.localeCompare(b.name));
     state.events.loading = false;
   },
   setEventsLoading(state) {

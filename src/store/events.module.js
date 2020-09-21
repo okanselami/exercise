@@ -29,7 +29,9 @@ const mutations = {
     state.eventDetail.loading = false;
   },
   setEventsSessions(state, payload) {
-    state.eventSessions.sessions = payload.results;
+    // Sort Sessions by Date
+    state.eventSessions.sessions = payload.results
+      .sort((a, b) => new Date(b.starts) - new Date(a.starts));
   },
   setEventLoading(state) {
     state.eventDetail.loading = true;
