@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <EventList v-bind:events="events.results" />
+    <Loading v-bind:loading="events.loading" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import { mapGetters, mapActions } from 'vuex';
+
+import Loading from '@/components/Loading.vue';
+import EventList from '@/components/EventList.vue';
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    Loading,
+    EventList,
+  },
+  computed: {
+    ...mapGetters({ events: 'getEvents' }),
+  },
+  methods: {
+    ...mapActions(['getEvents']),
+    eventsExist() {
+      return this.events.results.length ? null : this.getEvents();
+    },
+  },
+  created() {
+    this.eventsExist();
   },
 };
 </script>

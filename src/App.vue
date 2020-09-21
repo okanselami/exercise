@@ -1,31 +1,45 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link exact to="/">Event List</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+<script>
+import Vue from 'vue';
+import { Plugin } from 'vue-fragment';
+
+Vue.use(Plugin);
+export default {};
+</script>
 
 <style lang="scss">
-#app {
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background-color: $colorLightGrey;
+  padding-inline-start: 0 !important;
 }
 
 #nav {
   padding: 30px;
-
+  font-weight: $bolder;
+  color: $color1;
   a {
-    font-weight: bold;
-    color: #2c3e50;
+    font-weight: $bolder;
+    color: $color4;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: $colorDark;
     }
   }
 }
