@@ -1,4 +1,11 @@
 # event-list
+Simple Vue project for event listing and learning detail about event and sessions of event 
+```diff
+Tools;
++ Vue,vuex
+💜 SCSS
+```
+ 
 
 ## Project setup
 ```
